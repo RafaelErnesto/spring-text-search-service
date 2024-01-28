@@ -1,7 +1,8 @@
 package com.searchservice.app.config
 
+
 import com.searchservice.app.datasources.adapter.QuoteRepositoryAdapter
-import com.searchservice.app.datasources.repository.QuoteElasticsearchRepository
+import com.searchservice.app.datasources.repository.QuoteElasticsearchAPIRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 class QuoteAdapterConfig {
 
     @Bean
-    fun getQuoteRepositoryAdapter(quoteElasticsearchRepository: QuoteElasticsearchRepository): QuoteRepositoryAdapter {
-        return QuoteRepositoryAdapter(quoteElasticsearchRepository)
+    fun getQuoteRepositoryAdapter(quoteElasticsearchAPIRepository: QuoteElasticsearchAPIRepository): QuoteRepositoryAdapter {
+        return QuoteRepositoryAdapter(quoteElasticsearchAPIRepository)
     }
 }

@@ -5,7 +5,7 @@ import com.searchservice.app.transport.controller.QuoteController
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
-@Configuration
+//@Configuration
 class QuoteControllerConfig {
 
     @Bean
