@@ -7,15 +7,16 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
 @RequestMapping("/v1/quotes")
 class QuoteController(
     private val quoteService: QuoteService
 ) {
-    @GetMapping("/all")
-    fun fetchAll(): ResponseEntity<List<QuoteDTO>> {
-        val result = quoteService.findAll()
+    @GetMapping
+    fun findInText(@RequestParam(required = true) search: String): ResponseEntity<List<QuoteDTO>> {
+        val result = quoteService.findInText(search)
         return ResponseEntity.ok().body(result.map { it.toDTO() })
     }
     

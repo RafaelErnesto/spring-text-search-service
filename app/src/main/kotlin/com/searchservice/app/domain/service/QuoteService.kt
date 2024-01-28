@@ -7,7 +7,7 @@ import com.searchservice.app.domain.entities.Quote
 class QuoteService(
     private val quoteRepositoryAdapter: QuoteRepositoryAdapter
 ) {
-    fun findAll(): List<Quote> {
-        return quoteRepositoryAdapter.findAll()
+    fun findInText(searchText: String): List<Quote> {
+        return quoteRepositoryAdapter.findInText(searchText)
     }
 }
