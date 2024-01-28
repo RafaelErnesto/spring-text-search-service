@@ -4,3 +4,4 @@ spring:
       client:
         rest:
           uris: "http://localhost:9200"
+
