@@ -1,23 +1,26 @@
 package com.searchservice.app.datasources.adapter
 
+import com.searchservice.app.datasources.elasticsearch.toDomain
+import com.searchservice.app.datasources.elasticsearch.toIndex
 import com.searchservice.app.domain.entities.Quote
 import com.searchservice.app.datasources.repository.QuoteElasticsearchAPIRepository
 import com.searchservice.app.domain.repository.QuoteRepository
+import java.util.*
 
 
 class QuoteRepositoryAdapter(
-    val repository: QuoteElasticsearchAPIRepository
+    private val repository: QuoteElasticsearchAPIRepository
 ): QuoteRepository{
     override fun save(quote: Quote) {
-        TODO("Not yet implemented")
+        repository.save(quote.toIndex())
     }
 
     override fun delete(quoteId: String) {
-        TODO("Not yet implemented")
+        repository.delete(quoteId)
     }
 
-    override fun findById(id: String): Quote? {
-        TODO("Not yet implemented")
+    override fun findById(id: UUID): Quote? {
+        return repository.findById(id)?.toDomain()
     }
 
     override fun findInText(text: String): List<Quote> {

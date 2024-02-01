@@ -18,3 +18,7 @@ data class QuoteIndex(
 fun QuoteIndex.toDomain() = Quote(
     id, text
 )
+
+fun Quote.toIndex() = QuoteIndex(
+    id, text
+)
